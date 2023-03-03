@@ -1,0 +1,1 @@
+INSERT INTO federal_entity(`key`, name, code) VALUES (9, 'CIUDAD DE MEXICO', NULL);

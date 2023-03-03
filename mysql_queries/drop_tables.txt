@@ -1,0 +1,5 @@
+DROP TABLE federal_entity;
+DROP TABLE zip_code;
+DROP TABLE municipality;
+DROP TABLE settlement;
+DROP TABLE settlement_type;

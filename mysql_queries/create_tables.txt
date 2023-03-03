@@ -1,0 +1,44 @@
+CREATE TABLE `settlement`(
+    `key` INT UNSIGNED NOT NULL,
+    `name` VARCHAR(255) NOT NULL,
+    `zone_type` VARCHAR(255) NOT NULL,
+    `settlement_type_fk` INT UNSIGNED NOT NULL,
+    `zip_code_fk` INT UNSIGNED NOT NULL
+);
+ALTER TABLE
+    `settlement` ADD PRIMARY KEY `settlement_key_primary`(`key`);
+CREATE TABLE `settlement_type`(
+    `key` INT UNSIGNED NOT NULL,
+    `name` VARCHAR(255) NOT NULL
+);
+ALTER TABLE
+    `settlement_type` ADD PRIMARY KEY `settlement_type_key_primary`(`key`);
+CREATE TABLE `municipality`(
+    `key` INT UNSIGNED NOT NULL,
+    `name` VARCHAR(255) NOT NULL
+);
+ALTER TABLE
+    `municipality` ADD PRIMARY KEY `municipality_key_primary`(`key`);
+CREATE TABLE `zip_code`(
+    `zip_code` INT UNSIGNED NOT NULL,
+    `locality` VARCHAR(255) NOT NULL,
+    `federal_entity_fk` INT UNSIGNED NOT NULL,
+    `municipality_fk` INT UNSIGNED NOT NULL
+);
+ALTER TABLE
+    `zip_code` ADD PRIMARY KEY `zip_code_zip_code_primary`(`zip_code`);
+CREATE TABLE `federal_entity`(
+    `key` INT UNSIGNED NOT NULL,
+    `name` VARCHAR(255) NOT NULL,
+    `code` VARCHAR(255) NULL
+);
+ALTER TABLE
+    `federal_entity` ADD PRIMARY KEY `federal_entity_key_primary`(`key`);
+ALTER TABLE
+    `zip_code` ADD CONSTRAINT `zip_code_municipality_fk_foreign` FOREIGN KEY(`municipality_fk`) REFERENCES `municipality`(`key`);
+ALTER TABLE
+    `settlement` ADD CONSTRAINT `settlement_zip_code_fk_foreign` FOREIGN KEY(`zip_code_fk`) REFERENCES `zip_code`(`zip_code`);
+ALTER TABLE
+    `settlement` ADD CONSTRAINT `settlement_settlement_type_fk_foreign` FOREIGN KEY(`settlement_type_fk`) REFERENCES `settlement_type`(`key`);
+ALTER TABLE
+    `zip_code` ADD CONSTRAINT `zip_code_federal_entity_fk_foreign` FOREIGN KEY(`federal_entity_fk`) REFERENCES `federal_entity`(`key`);
