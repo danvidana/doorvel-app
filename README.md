@@ -5,10 +5,11 @@ doorvel-app is a Python API for dealing with CRUD operations of a postal codes d
 ## Development Plan
 
 ### 1st stage: MVP
-1. Build GET endpoint
-2. Create MySQL instance
+1. Build GET endpoint -- DONE
+1.1 ?Currently using JsonResponse. Need to find out how to use DRF to send only JSON, default sends whole HTML response -- Going to use normal Response class from DRF
+2. Create MySQL instance and database schema -- DONE
 3. Save postal codes (PCs) on MySQL database
-3? Create script to add PCs from CSV to MySQL database
+3.1 ?Create script to add PCs from CSV to MySQL database
 4. Create models for PCs
 5. Connect Django with MySQL
 6. Retrieve PC from GET Request
