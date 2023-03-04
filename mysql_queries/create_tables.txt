@@ -3,7 +3,7 @@ CREATE TABLE `settlement`(
     `name` VARCHAR(255) NOT NULL,
     `zone_type` VARCHAR(255) NOT NULL,
     `settlement_type_fk` INT UNSIGNED NOT NULL,
-    `zip_code_fk` INT UNSIGNED NOT NULL
+    `zip_code_fk` VARCHAR(255) NOT NULL
 );
 ALTER TABLE
     `settlement` ADD PRIMARY KEY `settlement_key_primary`(`key`);
@@ -20,7 +20,7 @@ CREATE TABLE `municipality`(
 ALTER TABLE
     `municipality` ADD PRIMARY KEY `municipality_key_primary`(`key`);
 CREATE TABLE `zip_code`(
-    `zip_code` INT UNSIGNED NOT NULL,
+    `zip_code` VARCHAR(255) NOT NULL,
     `locality` VARCHAR(255) NOT NULL,
     `federal_entity_fk` INT UNSIGNED NOT NULL,
     `municipality_fk` INT UNSIGNED NOT NULL
