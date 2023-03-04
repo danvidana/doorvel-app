@@ -84,7 +84,10 @@ DATABASES = {
         'PORT': '3306',
         'USER': 'root',
         'PASSWORD': 'RootPassword6!',
-        'NAME': 'doorvel_app_db'
+        'NAME': 'doorvel_app_db',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
     }
 }
 
