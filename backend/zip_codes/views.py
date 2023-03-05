@@ -20,11 +20,9 @@ def zipCode_id(request, zip_code_arg, *args, **kwargs):
   ZipCode Resource Agrument View
   """
   zipCodeInstance = ZipCode.objects.get(zip_code=zip_code_arg)
-  
-  print(ZipCodeSerializer(zipCodeInstance).data)
+  settlementsInstance = Settlement.objects.filter(zip_code_fk=zip_code_arg)
   federalEntityInstance = zipCodeInstance.federal_entity_fk
   municipalityInstance = zipCodeInstance.municipality_fk
-  settlementsInstance = Settlement.objects.filter(zip_code_fk=zip_code_arg)
   
   if zipCodeInstance:
     data = {}
