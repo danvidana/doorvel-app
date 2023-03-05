@@ -19,11 +19,12 @@ class FederalEntitySerializer(serializers.ModelSerializer):
     ]
     
 class MunicipalitySerializer(serializers.ModelSerializer):
+  key = serializers.IntegerField(source='local_key')
   class Meta:
     model = Municipality
     fields = [
       'key',
-      'name',
+      'name'
     ]
  
 class SettlementSerializer(serializers.ModelSerializer):
@@ -33,5 +34,6 @@ class SettlementSerializer(serializers.ModelSerializer):
       'key',
       'name',
       'zone_type',
-      'settlement_type'
+      'settlement_type',
+      'settlement_local_key'
     ]
