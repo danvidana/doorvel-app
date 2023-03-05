@@ -13,6 +13,9 @@ doorvel-app is a Python API for dealing with CRUD operations of a postal codes d
 4. Create models for zip codes -- DONE
 5. Connect Django with MySQL -- DONE
 6. Retrieve zip codes from GET Request -- DONE
+7. Host app
+8. Host MySQL instance
+9. Test
 
 ### 2nd stage: POST Method to add new PCs
 ### 3rd stage: PUT Method to update existing PCs
