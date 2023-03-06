@@ -1,7 +1,7 @@
 # doorvel-app
 
 https://doorvel-app.herokuapp.com/api/zip-codes/04260/
-doorvel-app is a Python API for dealing with CRUD operations of a postal codes database.
+- doorvel-app is a Python API for dealing with CRUD operations of a postal codes database.
 
 ## Development Plan
 
