@@ -49,15 +49,6 @@ for x, line in enumerate(temp):
     }
     print(x/len(temp) * 100, '%')
     
-    if lineDict["zip_code"] in zipCode_db:
-      print("Zip Code ", lineDict["zip_code"], " already in database. Not saving.")
-    else:
-      val = (lineDict["zip_code"], lineDict["locality"], lineDict["federal_entity_key"], lineDict["municipality_key"])
-      mycursor.execute(zip_codeQ, val)
-      mydb.commit()
-      zipCodeSaved_Counter += 1
-      zipCode_db.append(lineDict["zip_code"])
-      
     if lineDict["federal_entity_key"] in federalEntity_db:
       print("Federal Entity ", lineDict["federal_entity_name"], " already in database. Not saving.")
     else:
@@ -75,7 +66,16 @@ for x, line in enumerate(temp):
       mycursor.execute(municipalityQ, val)
       mydb.commit()
       municipalitySaved_Counter += 1
-    
+
+    if lineDict["zip_code"] in zipCode_db:
+      print("Zip Code ", lineDict["zip_code"], " already in database. Not saving.")
+    else:
+      val = (lineDict["zip_code"], lineDict["locality"], lineDict["federal_entity_key"], lineDict["municipality_key"])
+      mycursor.execute(zip_codeQ, val)
+      mydb.commit()
+      zipCodeSaved_Counter += 1
+      zipCode_db.append(lineDict["zip_code"])
+      
     if lineDict["settlement_key"] in settlement_db:
       print("Settlement ", lineDict["settlement_key"], " already in database. Not saving.")
     else:
@@ -85,9 +85,9 @@ for x, line in enumerate(temp):
       settlementSaved_Counter += 1
       settlement_db.append(lineDict["settlement_key"])
     
-# # print(zipCodeSaved_Counter, "zipcodes inserted.")
-# # print(federalEntitySaved_Counter, "federalentities inserted.")
-# # print(municipalitySaved_Counter, "municipalities inserted.")
+print(zipCodeSaved_Counter, "zipcodes inserted.")
+print(federalEntitySaved_Counter, "federalentities inserted.")
+print(municipalitySaved_Counter, "municipalities inserted.")
 print(settlementSaved_Counter, "settlements inserted.")
 
 
