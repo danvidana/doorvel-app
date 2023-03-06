@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-wfoa8!nf%)937%hj%nz%p#i^0^)$!m(r7^d$v7mbjs$i(0!riy'
+SECRET_KEY = 'django-insecure-wfoa8!nf%)937%hj%nz%p#i^0^)$!m(r7^d$v7mbjs$i(0!riy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['doorvel-app.herokuapp.com']
 
 
 # Application definition
