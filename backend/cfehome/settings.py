@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'cfehome.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'localhost',
+        'HOST': 'doorvelappdb.c4ign6abzcgh.us-east-1.rds.amazonaws.com',
         'PORT': '3306',
         'USER': 'root',
         'PASSWORD': 'RootPassword6!',
