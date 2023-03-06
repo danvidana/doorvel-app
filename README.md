@@ -25,6 +25,9 @@ https://doorvel-app.herokuapp.com/api/zip-codes/04260/
 ### 3rd stage: PUT Method to update existing PCs
 - Not developed yet
 
+## Extra Feature
+Developed insertion script inside insertScript/insert_zipcode.py to insert all zipcode data into a MySQL database instance. User should define connection details to database inside script and after execution, database is completely filled with correct data.
+
 ## Installation
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install doorvel-app.
