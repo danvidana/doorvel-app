@@ -21,7 +21,9 @@ doorvel-app is a Python API for dealing with CRUD operations of a postal codes d
 - Hosted on AWS RDS
 
 ### 2nd stage: POST Method to add new PCs
+- Not developed yet
 ### 3rd stage: PUT Method to update existing PCs
+- Not developed yet
 
 ## Installation
 
