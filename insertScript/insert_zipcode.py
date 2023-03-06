@@ -43,38 +43,38 @@ for x, line in enumerate(temp):
       "federal_entity_key": lineData[7],
       "municipality_key": lineData[7] + '_' + lineData[11],
       "local_key": lineData[11],
-      "settlement_key": lineData[11] + '_' + lineData[12],
+      "settlement_key": lineData[7] + '_' + lineData[11] + '_' + lineData[12],
       "settlement_local_key": lineData[12],
       "zone_type": lineData[13],
     }
-    print(x/len(temp))
+    print(x/len(temp) * 100, '%')
     
-    # if lineDict["zip_code"] in zipCode_db:
-    #   print("Zip Code ", lineDict["zip_code"], " already in database. Not saving.")
-    # else:
-    #   val = (lineDict["zip_code"], lineDict["locality"], lineDict["federal_entity_key"], lineDict["municipality_key"])
-    #   mycursor.execute(zip_codeQ, val)
-    #   mydb.commit()
-    #   zipCodeSaved_Counter += 1
-    #   zipCode_db.append(lineDict["zip_code"])
+    if lineDict["zip_code"] in zipCode_db:
+      print("Zip Code ", lineDict["zip_code"], " already in database. Not saving.")
+    else:
+      val = (lineDict["zip_code"], lineDict["locality"], lineDict["federal_entity_key"], lineDict["municipality_key"])
+      mycursor.execute(zip_codeQ, val)
+      mydb.commit()
+      zipCodeSaved_Counter += 1
+      zipCode_db.append(lineDict["zip_code"])
       
-    # if lineDict["federal_entity_key"] in federalEntity_db:
-    #   print("Federal Entity ", lineDict["federal_entity_name"], " already in database. Not saving.")
-    # else:
-    #   val = (lineDict["federal_entity_key"], lineDict["federal_entity_name"])
-    #   mycursor.execute(federal_entityQ, val)
-    #   mydb.commit()
-    #   federalEntitySaved_Counter += 1
-    #   federalEntity_db.append(lineDict["federal_entity_key"])
+    if lineDict["federal_entity_key"] in federalEntity_db:
+      print("Federal Entity ", lineDict["federal_entity_name"], " already in database. Not saving.")
+    else:
+      val = (lineDict["federal_entity_key"], lineDict["federal_entity_name"])
+      mycursor.execute(federal_entityQ, val)
+      mydb.commit()
+      federalEntitySaved_Counter += 1
+      federalEntity_db.append(lineDict["federal_entity_key"])
     
-    # if lineDict["municipality_key"] in municipality_db:
-    #   print("Municipality ", lineDict["municipality_name"], " already in database. Not saving.")
-    # else:
-    #   municipality_db.append(lineDict["municipality_key"])
-    #   val = (lineDict["municipality_key"], lineDict["local_key"], lineDict["municipality_name"])
-    #   mycursor.execute(municipalityQ, val)
-    #   mydb.commit()
-    #   municipalitySaved_Counter += 1
+    if lineDict["municipality_key"] in municipality_db:
+      print("Municipality ", lineDict["municipality_name"], " already in database. Not saving.")
+    else:
+      municipality_db.append(lineDict["municipality_key"])
+      val = (lineDict["municipality_key"], lineDict["local_key"], lineDict["municipality_name"])
+      mycursor.execute(municipalityQ, val)
+      mydb.commit()
+      municipalitySaved_Counter += 1
     
     if lineDict["settlement_key"] in settlement_db:
       print("Settlement ", lineDict["settlement_key"], " already in database. Not saving.")
